@@ -50,11 +50,11 @@ Ik ga je helpen met het inschakelen van Developer Mode in Windows 11. Er zijn in
 
 2. **Navigeer naar de juiste locatie**:
    ```
-   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock
+   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers
    ```
 
 3. **Wijzig de waarde**:
-   - Zoek de DWORD-waarde genaamd `AllowDevelopmentWithoutDevLicense`
+   - Zoek of maak de DWORD-waarde genaamd `EnableDeveloperMode`
    - Dubbelklik erop
    - Wijzig de waarde van `0` naar `1`
    - Klik op "OK"
