@@ -148,3 +148,33 @@ sequenceDiagram
     Note over Platform: UI wordt gerenderd
     Platform-->>Main: App is gestart
 ```
+
+**Belangrijkste bestanden en klassen in volgorde:**
+
+1. **Program.cs** (of Main method)
+   - Entry point van de applicatie
+
+2. **MauiProgram.cs**
+   - `CreateMauiApp()` methode
+   - Service registratie
+   - Platform configuratie
+
+3. **App.xaml / App.xaml.cs**
+   - Application lifecycle
+   - Global resources
+   - Hoofdpagina instelling
+
+4. **AppShell.xaml / AppShell.xaml.cs** (indien gebruikt)
+   - Navigation structuur
+   - Tab/Flyout definitie
+
+5. **MainPage.xaml / MainPage.xaml.cs**
+   - Eerste zichtbare pagina
+   - UI componenten
+
+**Platform-specifieke bestanden:**
+- **Android**: `MainActivity.cs`, `MainApplication.cs`
+- **iOS**: `AppDelegate.cs`
+- **Windows**: `App.xaml.cs` (WinUI)
+
+De volgorde kan enigszins variëren afhankelijk van de platformimplementatie, maar dit geeft de algemene flow weer van een MAUI app startup proces.
