@@ -40,8 +40,9 @@ Ik ga je helpen met het inschakelen van Developer Mode in Windows 11. Er zijn in
    - Windows zal mogelijk vragen om opnieuw op te starten
 
 ## Methode 2: Via het Windows Register
-
 **Waarschuwing**: Het bewerken van het register kan je systeem beschadigen als je niet voorzichtig bent. Maak altijd een back-up van het register voordat je wijzigingen aanbrengt.
+
+Je dient hiervoor 2 waarden aan te passen.
 
 1. **Open Register Editor**:
    - Druk op `Windows + R`
@@ -59,8 +60,19 @@ Ik ga je helpen met het inschakelen van Developer Mode in Windows 11. Er zijn in
    - Wijzig de waarde van `0` naar `1`
    - Klik op "OK"
 
+2. **Navigeer naar de juiste locatie**:
+   ```
+   HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx
+   ```
+
+3. **Wijzig de waarde**:
+   - Zoek de DWORD-waarde genaamd `AllowDevelopmentWithoutDevLicense`
+   - Dubbelklik erop
+   - Wijzig de waarde van `0` naar `1`
+   - Klik op "OK"
+
 4. **Herstart je computer**:
-   - Herstart Windows om de wijzigingen toe te passen
+   - Herstart Windows om de wijzigingen toe te passen (niet perse nodig)
 
 ## Verificatie
 
