@@ -51,28 +51,28 @@ Je dient hiervoor 2 waarden aan te passen.
 
 2. **Navigeer naar de juiste locatie**:
    ```
-   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers
+   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock
    ```
 
 3. **Wijzig de waarde**:
-   - Zoek of maak de DWORD-waarde genaamd `EnableDeveloperMode`
+   - Zoek of maak de DWORD-waarde genaamd `AllowDevelopmentWithoutDevLicense`
    - Dubbelklik erop
    - Wijzig de waarde van `0` naar `1`
    - Klik op "OK"
 
-2. **Navigeer naar de juiste locatie**:
+4. **Navigeer naar de juiste locatie**:
    ```
    HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx
    ```
 
-3. **Wijzig de waarde**:
+5. **Wijzig de waarde**:
    - Zoek de DWORD-waarde genaamd `AllowDevelopmentWithoutDevLicense`
    - Dubbelklik erop
    - Wijzig de waarde van `0` naar `1`
    - Klik op "OK"
 
-4. **Herstart je computer**:
-   - Herstart Windows om de wijzigingen toe te passen (niet perse nodig)
+6. **Herstart je computer** (niet perse nodig):
+   - Herstart Windows om de wijzigingen toe te passen 
 
 ## Verificatie
 
