@@ -95,3 +95,56 @@ Met Developer Mode ingeschakeld krijg je toegang tot:
 - Visual Studio debugging tools
 
 **Tip**: Voor de meeste ontwikkelaars is Methode 1 (via Instellingen) de veiligste en eenvoudigste optie. Gebruik alleen de register-methode als je specifieke redenen hebt om dit te doen.
+
+# MAUI 
+
+```mermaid
+sequenceDiagram
+    participant Main as Program.Main()
+    participant Builder as MauiAppBuilder
+    participant App as MauiApp
+    participant Platform as Platform (iOS/Android/Windows)
+    participant AppClass as App Class
+    participant MainPage as MainPage
+    participant Shell as AppShell
+
+    Main->>Builder: MauiApp.CreateBuilder()
+    Note over Builder: MauiProgram.cs wordt geladen
+    
+    Builder->>Builder: ConfigureFonts()
+    Builder->>Builder: UseMauiApp<App>()
+    Builder->>Builder: RegisterServices()
+    Note over Builder: Dependency Injection configuratie
+    
+    Builder->>App: Build()
+    Note over App: MauiApp instance wordt gecreëerd
+    
+    App->>Platform: RunWithMainLoopAsync()
+    Note over Platform: Platform-specifieke initialisatie
+    
+    Platform->>Platform: CreateNativeApplication()
+    Platform->>Platform: InitializePlatformServices()
+    
+    Platform->>AppClass: new App()
+    Note over AppClass: App.xaml.cs constructor
+    
+    AppClass->>AppClass: InitializeComponent()
+    Note over AppClass: App.xaml wordt geladen
+    
+    AppClass->>AppClass: OnStart()
+    
+    AppClass->>MainPage: SetMainPage()
+    alt Als Shell wordt gebruikt
+        AppClass->>Shell: new AppShell()
+        Shell->>Shell: InitializeComponent()
+        Shell->>MainPage: LoadPage()
+    else Direct Page
+        AppClass->>MainPage: new MainPage()
+        MainPage->>MainPage: InitializeComponent()
+    end
+    
+    MainPage->>MainPage: OnAppearing()
+    
+    Note over Platform: UI wordt gerenderd
+    Platform-->>Main: App is gestart
+```
